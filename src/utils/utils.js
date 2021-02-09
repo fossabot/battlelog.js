@@ -6,3 +6,5 @@ function getArticle(str, plural) {
 	if('aiueo'.includes(str[0])) return 'an';
 	return 'a';
 }
+
+module.exports.getArticle = getArticle;

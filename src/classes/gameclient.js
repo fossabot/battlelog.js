@@ -1,4 +1,9 @@
+const axios = require("axios");
+const defaultHeader = require("../assets/json/headers.json");
 class GameClient {
+	
+	type = "GameClient";
+	
 	constructor(client, options = {}) {
 		if (!client) throw Error("The 'client' parameter is required. ");
 
@@ -14,6 +19,14 @@ class GameClient {
 			throw Error('The game is not available in Battlelog.');
 
 		this.game = game;
+		
+		this.client = client;
+				
+		this.axios = axios.create({
+			baseURL: `https://battlelog.battlefield.com/${this.game}`,
+		
+  timeout: 1000,
+  headers: defaultHeader		})
 	}
 
 	async login(email, password, options = {}) {
@@ -22,8 +35,13 @@ class GameClient {
 
 		if (!email) throw Error("Parameter 'email' is required.");
 		if (!password) throw Error("Parameter 'password' is required.");
-		const game = this.game;
-		var res = await this.axios.post(`${game}/gate/login`, {
+		
+		if(typeof options !== "object") throw Error("Parameter 'options' is required to be an object.");
+		
+		if(typeof options.saveForAllGames === 'undefined') options.saveForAllGames = true;
+		
+	  
+		var res = await this.axios.post('/gate/login', {
 			data: {
 				redirect: '',
 				submit: 'Sign in',
@@ -32,8 +50,10 @@ class GameClient {
 			}
 		});
 		
-		
-		
+throw Error("There's no really a usage of this method, yet.")
+	   res.headers["set-cookie"];
 		
 	}
 }
+
+module

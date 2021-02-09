@@ -1,23 +1,21 @@
-(async function() { const axios = require("axios");
-const fs = require("fs");
+(async function() {
+	const axios = require('axios');
+	const fs = require('fs');
 
-const cheerio = require("cheerio");
-const res = await axios({
-	method: "POST",
-	url: "https://battlelog.battlefield.com/bf3/gate/login/",
-	headers: {"X-Requested-With":"XMLHttpRequest", "X-AjaxNavigation":"1"},
-	data: {
-		redirect: '',
-		submit: 'Sign in',
-		email: process.env.EMAIL,
-		password: process.env.PASSWORD
-	}
-})
-console.log(res)
+	const cheerio = require('cheerio');
+	const res = await axios({
+		method: 'GET',
+		url: 'https://battlelog.battlefield.com/bf3/user/DANNYonPC',
+		headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-AjaxNavigation': '1' }
+	});
+	console.log(res.data);
+	var ok = res.data.context.profileCommon;
 
-const $ = cheerio.load(res.data);
-console.log($(".icon-danger")[0].next)
-console.log(res.headers)
-})()
+	delete ok.platoons;
+	delete ok.platoonFans;
 
-// .icon-danger 
+	console.log(ok.tenFriends);
+
+})();
+
+// .icon-danger
