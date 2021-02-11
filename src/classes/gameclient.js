@@ -1,16 +1,18 @@
 const axios = require("axios");
 const defaultHeader = require("../assets/json/headers.json");
+const { UsersManager } = require("./usersmanager");
+
 class GameClient {
 	
 	type = "GameClient";
 	
-	constructor(client, options = {}) {
+	constructor(client, game = 'bf3', options = {}) {
 		if (!client) throw Error("The 'client' parameter is required. ");
 
 		if (typeof options !== 'object')
 			throw Error("Parameter 'options' is required to be an object. ");
 
-		const game = options.game || 'bf4';
+		
 		if (typeof game !== 'string')
 			throw Error("Parameter 'game' is required to be a string.");
 		game = game.toLowerCase();
@@ -21,12 +23,18 @@ class GameClient {
 		this.game = game;
 		
 		this.client = client;
+		
+		if(!options.axios) options.axios = {};
 				
 		this.axios = axios.create({
 			baseURL: `https://battlelog.battlefield.com/${this.game}`,
 		
-  timeout: 1000,
-  headers: defaultHeader		})
+  ...options.axios,
+  headers: { ...(options.axios.headers || {}), ...defaultHeader },
+   
+			
+			
+		})
 	}
 
 	async login(email, password, options = {}) {
@@ -54,6 +62,8 @@ throw Error("There's no really a usage of this method, yet.")
 	   res.headers["set-cookie"];
 		
 	}
+	
+	users = new UsersManager(this);
 }
 
-module
+module.exports.GameClient = GameClient;

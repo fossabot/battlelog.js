@@ -1,4 +1,8 @@
 class Platoon {
+
+
+	#badgePathRaw;
+
 	constructor(client, data){
 	if(data){
 	this.structureData(data);
@@ -13,7 +17,7 @@ class Platoon {
 		}
 
 
-		this["#badgePathRaw"] = data.badgePath;
+		this.#badgePathRaw = data.badgePath;
 		
 	}
 

@@ -1,3 +1,4 @@
+
 function getArticle(str, plural) {
 	if(!str) throw Error("Expected parameter 'str'. Found no parameters.");
 	
@@ -7,4 +8,20 @@ function getArticle(str, plural) {
 	return 'a';
 }
 
+
+function structureData(cls, data, blacklist = []) {
+	if(!data) return;
+	if(!cls) throw Error();
+	if(!['array', 'undefined'].includes(typeof blacklist)) throw Error();
+
+		for(let [name, value] of Object.entries(data)){
+			if(!blacklist.includes(name)){
+			cls[name] = value;
+			} 
+		}
+
+		return cls;
+}
+
 module.exports.getArticle = getArticle;
+module.exports.structureData = structureData;
