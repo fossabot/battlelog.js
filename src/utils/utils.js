@@ -8,15 +8,29 @@ function getArticle(str, plural) {
 	return 'a';
 }
 
+function setDefault(obj, prop, value){
+	if(!obj[prop]) return obj[prop] = value;
 
-function structureData(cls, data, blacklist = []) {
+}
+/*
+function checkEverythingOut(rules){
+	checkEverythingOut({data: rules, })
+}*/
+function structureData(cls, data, options = {}) {
 	if(!data) return;
 	if(!cls) throw Error();
-	if(!['array', 'undefined'].includes(typeof blacklist)) throw Error();
+
+	setDefault(options, 'blacklist', []);
+	setDefault(options, 'nicknames', {});
+
+	
+
 
 		for(let [name, value] of Object.entries(data)){
-			if(!blacklist.includes(name)){
-			cls[name] = value;
+			if(!options.blacklist.includes(name)){
+
+			cls[options.nicknames[name] || name] = value;
+
 			} 
 		}
 

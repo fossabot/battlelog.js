@@ -2,6 +2,9 @@ const { Platoon } = require("./platoon");
 const utils = require("../utils/utils");
 
 class User {
+
+	#gravatar;
+
 	constructor (client, data){
 		
 	this.client = client;	
@@ -23,7 +26,15 @@ this.soldiers = res.data.context.soldiersBox;
 
 	structureData(data){
 		
-		utils.structureData(this, data, ["userinfo", "user", "tenFriends", "tenFriends", "platoons", "platoonFans"]);
+		utils.structureData(this, data, {blacklist: ["userinfo", "user", "tenFriends", "tenFriends", "platoons", "platoonFans", "presence"]});
+		if(data.user){
+		utils.structureData(this, data.user, {blacklist: ["gravatarMd5"]});
+
+		this.#gravatar = data.user.gravatarMd5;
+
+		}
+
+
 		if(data.tenFriends){
 			this.friends = data.tenFriends.map((i) => new User(this.client, i));
 		}
@@ -38,20 +49,24 @@ this.soldiers = res.data.context.soldiersBox;
 		}
 
 		if(data.presence){
-		this.isOnline = data.presence.isOnline || false;
-		this.presenceUpdatedAt = data.presence.updatedAt;
-		this.presenceStates = data.presence.presenceStates;
+	
+		utils.structureData(this, data.presence, {nicknames: {updatedAt: "presenceUpdatedAt"}})
 		}
-
-		if(data.userStatusMessage){
+		if(data.userinfo){
+			utils.structureData(this, data.userinfo);
+		}
+		/*if(data.userStatusMessage){
 			this.statusMessageChange
-		}
+		}*/
 		
 		this.client.users.cache.set(this.userId,this);
 	}
 
 	
-
+	displayAvatarURL(options = {}){
+		if(options.size && options.size > 2048) throw Error("Option 'size' is required to be less than 2048.");
+		if(options.size && options.size < 1) throw Error("Option 'size' is required to be more than 1.")
+	}
 
 }
 

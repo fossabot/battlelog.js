@@ -6,7 +6,7 @@ var client = bl();
 
 var bf3 = client.game('bf3');
 
-console.log((await bf3.users.fetch( "Nefomemes")).soldiers[0]);
+console.log((await bf3.users.fetch( "Nefomemes")));
 
 })()
 

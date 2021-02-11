@@ -5,10 +5,11 @@
 	const cheerio = require('cheerio');
 	const res = await axios({
 		method: 'GET',
-		url: 'https://battlelog.battlefield.com/bf3/overviewPopulateStats/280966984/bf3-us-assault/1/',
+		url: 'https://battlelog.battlefield.com/bf3/user/Nefomemes/',
 		headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-AjaxNavigation': '1' }
 	});
 	console.log(res.data);
+	console.log(res.data.context)
 	
 
 
