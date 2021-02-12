@@ -1,9 +1,12 @@
 const { Platoon } = require("./platoon");
 const utils = require("../utils/utils");
-
+const { stringify } = require("querystring");
+const {  }
 class User {
 
 	#gravatar;
+	
+	#client;
 
 	constructor (client, data){
 		
@@ -30,7 +33,7 @@ this.soldiers = res.data.context.soldiersBox;
 		if(data.user){
 		utils.structureData(this, data.user, {blacklist: ["gravatarMd5"]});
 
-		this.#gravatar = data.user.gravatarMd5;
+		this['#gravatar'] = data.user.gravatarMd5;
 
 		}
 
@@ -62,10 +65,25 @@ this.soldiers = res.data.context.soldiersBox;
 		this.client.users.cache.set(this.userId,this);
 	}
 
-	
+
 	displayAvatarURL(options = {}){
+
+		
+
 		if(options.size && options.size > 2048) throw Error("Option 'size' is required to be less than 2048.");
-		if(options.size && options.size < 1) throw Error("Option 'size' is required to be more than 1.")
+		if(options.size && options.size < 1) throw Error("Option 'size' is required to be more than 1.");
+		if(options.rating === "r") throw Error("To prevent abuse of this library. Avatars that are rated 'r' or 'x' is not permitted.");
+		
+		if(options.rating === "x") throw Error("Ok coomer");
+		
+		if(!['g', 'pg'].includes(options.rating)) throw Error("");
+		if(!(options.d.startsWith("http://") || options.d.startsWith("https://")) && !['404', 'mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'].includes(options.default)) throw Error("Option 'default' did not provide a valid default profile picture");
+		
+		return `https://www.gravatar.com/avatar/${this['#gravatar']}${options.extension}?${stringify({r: options.rating, d: options.default, s: options.size })}`;
+
+
+		
+		
 	}
 
 }
