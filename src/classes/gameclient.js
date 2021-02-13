@@ -37,32 +37,7 @@ class GameClient {
 		})
 	}
 
-	async login(email, password, options = {}) {
-		if (!email && !password)
-			throw Error("'email' and 'password' parameters are required.");
 
-		if (!email) throw Error("Parameter 'email' is required.");
-		if (!password) throw Error("Parameter 'password' is required.");
-		
-		if(typeof options !== "object") throw Error("Parameter 'options' is required to be an object.");
-		
-		if(typeof options.saveForAllGames === 'undefined') options.saveForAllGames = true;
-		
-	  
-		var res = await this.axios.post('/gate/login', {
-			data: {
-				redirect: '',
-				submit: 'Sign in',
-				email: email,
-				password: password
-			}
-		});
-		
-throw Error("There's no really a usage of this method, yet.")
-	   res.headers["set-cookie"];
-		
-	}
-	
 	users = new UsersManager(this);
 }
 

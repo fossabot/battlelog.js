@@ -8,24 +8,34 @@ function getArticle(str, plural) {
 	return 'a';
 }
 
+
 function setDefault(obj, prop, value){
 	if(!obj[prop]) return obj[prop] = value;
 
 }
 
 
-function validateParams(data, rules){
+function validateOptions(data, rules){
+
+
 	if(rules.alias){
-		for(let [name], [value] of Object.entries(rules.alias)){
-			data[name] = data[name] || data[value];
+		for(let [name, value] of Object.entries(rules.alias)){
+			if(typeof data[name] === "undefined") data[name] = data[value];
 		}
 	}
+
+	if(rules.defaults){
+		for(let [name, value] of Object.entries(rules.defaults)){
+			if(typeof data[name] === "undefined") data[name] = value;
+		}
+	}
+
 	if(rules.required && rules.required.length){
 		for(let required of rules.required){
 			if(!data[required]) throw Error(`Option '${required}' is required. While it's not provided.`);
 		}
 	}
-	
+
 	return data;
 	
 }
@@ -35,15 +45,17 @@ function structureData(cls, data, options = {}) {
 
 	setDefault(options, 'blacklist', []);
 	setDefault(options, 'nicknames', {});
-
+	setDefault(options, 'setBoolean', []);
 	
 
 
 		for(let [name, value] of Object.entries(data)){
 			if(!options.blacklist.includes(name)){
-
+			if(!options.setBoolean){
 			cls[options.nicknames[name] || name] = value;
-
+			} else {
+			cls[options.nicknames[name] || name] = value ? true : false;
+			}
 			} 
 		}
 
@@ -52,3 +64,4 @@ function structureData(cls, data, options = {}) {
 
 module.exports.getArticle = getArticle;
 module.exports.structureData = structureData;
+module.exports.validateOptions = validateOptions;
