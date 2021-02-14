@@ -1,5 +1,5 @@
 const utils = require("../utils/utils");
-
+const { Server } = require("./server")
 class ServerBrowser {
 	cache = new Map();
 
@@ -10,17 +10,15 @@ class ServerBrowser {
 		
 	}
 
-	structureData(data){
-		for(let server of data){
-			this.cache.set(server.guid, new Server(client, server));
-		}
 
-		return this;
-	}
 
 	async fetch(){
 		const res = await this.client.axios.get('/servers');
 
 		this.structureData(res.data.context.servers);
+
+		for(let server of res.data.context.servers){
+			new Server(this.client, server);
+		}
 	}
 }

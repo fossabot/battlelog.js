@@ -1,6 +1,12 @@
 const { Platoon } = require("./platoon");
 const utils = require("../utils/utils");
 const { stringify } = require("querystring");
+/**
+ * Represents a Battlelog user.
+ * @constructor 
+ * @param {GameClient} client - The client used to access this user.
+ * @param {object} data - Raw object data of the user. 
+ */
 class User {
 
 	#gravatar;
@@ -16,16 +22,26 @@ class User {
 		this.name  = data;
 	}
 	}
-
+/**
+ * @function fetch
+ * @async 
+ * @desc Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+ */
 	async fetch(){
 			const res = await this.client.axios.get(`/user/${this.name}`);
 
 			const profile = res.data.context.profileCommon;
 			this.structureData(profile);
 this.soldiers = res.data.context.soldiersBox;
+this.activities = res.data.context.activityStream;
 	return this;
 	}
-
+	/**
+	 * @function
+	 * @param {object} data 
+	 * @desc Structure the raw data given and use it to refresh the properties.
+	 * @returns this
+	 */
 	structureData(data){
 		
 		utils.structureData(this, data, {blacklist: ["user", "tenFriends", "platoons", "platoonFans"]});
@@ -57,7 +73,12 @@ this.soldiers = res.data.context.soldiersBox;
 		this.client.users.cache.set(this.userId,this);
 	}
 
-
+	/**
+	 * 
+	 * @function
+	 * @returns 
+	 * @param {object} options - Options used 
+	 */
 	displayAvatarURL(options = {}){
 
 		utils.validateOptions( options, {alias: {size: 's', rating: 'r', 'default': 'd', extension: 'e'}, defaults: {'default': 'retro'}});

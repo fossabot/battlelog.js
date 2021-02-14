@@ -52,9 +52,9 @@ function structureData(cls, data, options = {}) {
 		for(let [name, value] of Object.entries(data)){
 			if(!options.blacklist.includes(name)){
 			if(!options.setBoolean){
-			cls[options.nicknames[name] || name] = value;
+			cls[options.alias[name] || name] = value;
 			} else {
-			cls[options.nicknames[name] || name] = value ? true : false;
+			cls[options.alias[name] || name] = value ? true : false;
 			}
 			} 
 		}

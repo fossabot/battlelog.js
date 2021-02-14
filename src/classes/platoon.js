@@ -1,3 +1,5 @@
+const utils = require("../utils/utils");
+
 class Platoon {
 
 
@@ -10,11 +12,7 @@ class Platoon {
 	}
 
 	structureData(data){
-		for(let [name, value] of Object.entries(data)){
-			if(!["badgePath"].includes(name)){
-			this[name] = value;
-			}
-		}
+		utils.structureData(this, data, {blacklist: ['badgePath']});
 
 
 		this.#badgePathRaw = data.badgePath;

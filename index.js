@@ -21,7 +21,7 @@ const params = new URLSearchParams();
 	
 */
 
-	var authRes = await axios.get('https://battlelog.battlefield.com/bf3/servers/show/pc/50790784-cb9b-4d22-b403-13df425a66d9/FHC-2-Main-Game-CQL-24-7-QQ-Group-299271357/', {
+	var authRes = await axios.get('http://battlelog.battlefield.com/bf3/user/Nefomemes', {
 
 		headers: {
 			"X-Requested-With": "XMLHttpRequest",
@@ -32,7 +32,7 @@ const params = new URLSearchParams();
 	});
 
 	
-	fs.writeFile(require('path').join(__dirname, 'src/assets/json/bf3/modes.json'), JSON.stringify(authRes.data.context.gameModes), function() {});
+console.log(authRes.data);
 
 })();
 
