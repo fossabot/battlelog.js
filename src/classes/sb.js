@@ -6,6 +6,7 @@ class ServerBrowser {
 	constructor(client, data){
 		this.client = client;
 		
+		structureData(data);
 		
 	}
 
@@ -15,5 +16,11 @@ class ServerBrowser {
 		}
 
 		return this;
+	}
+
+	async fetch(){
+		const res = await this.client.axios.get('/servers');
+
+		this.structureData(res.data.context.servers);
 	}
 }
