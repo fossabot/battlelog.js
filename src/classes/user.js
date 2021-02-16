@@ -73,9 +73,8 @@ this.activities = res.data.context.activityStream;
 	}
 
 	/**
-	 * 
+	 * Get the URL string of the user's avatar.
 	 * @function
-	 * @returns 
 	 * @param {object} options - Options used 
 	 * @returns {string} URL string for the user's avatar.
 	 */
