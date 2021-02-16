@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> node_modules/axios/lib/core/enhanceError.js</title>
+  <title> user.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -68,7 +68,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Cancel.html">Cancel</a></li><li><a href="CancelToken.html">CancelToken</a></li><li><a href="User.html">User</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Axios">Axios</a></li><li><a href="global.html#createInstance">createInstance</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#forEach">forEach</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isArrayBuffer">isArrayBuffer</a></li><li><a href="global.html#isArrayBufferView">isArrayBufferView</a></li><li><a href="global.html#isBlob">isBlob</a></li><li><a href="global.html#isBuffer">isBuffer</a></li><li><a href="global.html#isDate">isDate</a></li><li><a href="global.html#isFile">isFile</a></li><li><a href="global.html#isFormData">isFormData</a></li><li><a href="global.html#isFunction">isFunction</a></li><li><a href="global.html#isNumber">isNumber</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isPlainObject">isPlainObject</a></li><li><a href="global.html#isStandardBrowserEnv">isStandardBrowserEnv</a></li><li><a href="global.html#isStream">isStream</a></li><li><a href="global.html#isString">isString</a></li><li><a href="global.html#isUndefined">isUndefined</a></li><li><a href="global.html#isURLSearchParams">isURLSearchParams</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#setProxy">setProxy</a></li><li><a href="global.html#stripBOM">stripBOM</a></li><li><a href="global.html#throwIfCancellationRequested">throwIfCancellationRequested</a></li><li><a href="global.html#trim">trim</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="User.html">User</a></li></ul></div>
                 
             </nav>
         </div>
@@ -76,7 +76,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>node_modules/axios/lib/core/enhanceError.js</h1>
+                    <h1>user.js</h1>
                 </header>
                 
 
@@ -85,48 +85,111 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
-
+            <pre class="prettyprint source linenums"><code>const { Platoon } = require("./platoon");
+const utils = require("../utils/utils");
+const { stringify } = require("querystring");
 /**
- * Update an Error with the specified config, error code, and response.
- *
- * @param {Error} error The error to update.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The error.
+ * Represents a Battlelog user.
+ * @constructor 
+ * @param {GameClient} client - The client used to access this user.
+ * @param {object} data - Raw object data of the user. 
  */
-module.exports = function enhanceError(error, config, code, request, response) {
-  error.config = config;
-  if (code) {
-    error.code = code;
-  }
+class User {
 
-  error.request = request;
-  error.response = response;
-  error.isAxiosError = true;
+	#gravatar;
+	
+	#client;
 
-  error.toJSON = function toJSON() {
-    return {
-      // Standard
-      message: this.message,
-      name: this.name,
-      // Microsoft
-      description: this.description,
-      number: this.number,
-      // Mozilla
-      fileName: this.fileName,
-      lineNumber: this.lineNumber,
-      columnNumber: this.columnNumber,
-      stack: this.stack,
-      // Axios
-      config: this.config,
-      code: this.code
-    };
-  };
-  return error;
-};
+	constructor (client, data){
+		
+	this.client = client;	
+	if(typeof data === "object"){
+	thi.structureData(data);
+	} else if(typeof data == "string"){
+		this.name  = data;
+	}
+	}
+/**
+ * Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+ * @async 
+ * @returns {User} the User
+ */
+	async fetch(){
+			const res = await this.client.axios.get(`/user/${this.name}`);
+
+			const profile = res.data.context.profileCommon;
+			this.structureData(profile);
+this.soldiers = res.data.context.soldiersBox;
+this.activities = res.data.context.activityStream;
+	return this;
+	}
+	/**
+	 * Structure the class using the data provided. 
+	 * @param {object} data - The data used to structure the class  
+	 * @returns {User} the User
+	 */
+	structureData(data){
+		
+		utils.structureData(this, data, {blacklist: ["user", "tenFriends", "platoons", "platoonFans"]});
+		if(data.user){
+		utils.structureData(this, data.user, {blacklist: ["gravatarMd5"]});
+
+		this.#gravatar = data.user.gravatarMd5;
+
+		}
+
+
+		if(data.tenFriends){
+			this.friends = data.tenFriends.map((i) => new User(this.client, i));
+		}
+
+		if(data.platoons){
+			this.platoons = data.platoons.map((i) => new Platoon(this.client, i));
+
+		}
+		
+		if(data.platoonFans){
+			this.platoonFans = data.platoonFans.map((i) => new Platoon(this.client, i));
+		}
+
+		if(this.club){
+			this.club = new Platoon(this.client, data.club);
+		}
+		
+		this.client.users.cache.set(this.userId,this);
+	}
+
+	/**
+	 * Get the URL string of the user's avatar.
+	 * @function
+	 * @param {object} options - Options used 
+	 * @returns {string} URL string for the user's avatar.
+	 */
+	displayAvatarURL(options = {}){
+
+		utils.validateOptions( options, {alias: {size: 's', rating: 'r', 'default': 'd', extension: 'e'}, defaults: {'default': 'retro'}});
+
+		if(options.size &amp;&amp; options.size > 2048) throw Error("Option 'size' is required to be less than 2048.");
+		if(options.size &amp;&amp; options.size &lt; 1) throw Error("Option 'size' is required to be more than 1.");
+		if(options.rating === "r") throw Error("To prevent abuse of this library. Avatars that are rated 'r' or 'x' is not permitted.");
+		
+		if(options.rating === "x") throw Error("Ok coomer");
+		
+		if(!['g', 'pg'].includes(options.rating)) throw Error("");
+		if(!(options.default.startsWith("http://") || options.default.startsWith("https://")) &amp;&amp; !['404', 'mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'].includes(options.default)) throw Error("Option 'default' did not provide a valid default profile picture");
+		let params = {r: options.rating, d: options.default, s: options.size };
+
+		if(options.forceDefault) params.f = 'y';
+		return `https://www.gravatar.com/avatar/${this.#gravatar}.${options.extension}?${stringify(params)}`;
+
+
+		
+		
+	}
+
+}
+
+module.exports.User = User;
 </code></pre>
         </article>
     </section>
