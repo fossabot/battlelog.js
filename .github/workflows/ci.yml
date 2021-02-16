@@ -1,6 +1,6 @@
 name: Example NodeJS Workflow
 
-on: [pull_request]
+on: [pull_request, push]
 
 jobs:
   node_test:
