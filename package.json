@@ -1,5 +1,5 @@
 {
-  "name": "Battlefield",
+  "name": "battlelog.js",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1"
+  "license": "MIT",
+  "dependencies":{
+    
+    "axios": "^0.21.1",
+    
   }
 }
