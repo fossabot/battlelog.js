@@ -17,15 +17,15 @@ class User {
 		
 	this.client = client;	
 	if(typeof data === "object"){
-	this.structureData(data);
+	thi.structureData(data);
 	} else if(typeof data == "string"){
 		this.name  = data;
 	}
 	}
 /**
- * @function fetch
+ * Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
  * @async 
- * @desc Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+ * @returns this
  */
 	async fetch(){
 			const res = await this.client.axios.get(`/user/${this.name}`);
