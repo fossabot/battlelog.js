@@ -1,21 +1,40 @@
 (async function() {
 	const axios = require('axios');
 	const fs = require('fs');
+/*
+const params = new URLSearchParams();
+	params.append('redirect', '');
+	params.append('submit', 'Sign in');
+	params.append('email', process.env.EMAIL);
+	params.append('password', process.env.PASSWORD);
+ 
+	var res = await axios.post('https://battlelog.battlefield.com/bf3/gate', {
+	params,
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+});
 
-	const cheerio = require('cheerio');
-	const res = await axios({
-		method: 'GET',
-		url: 'https://battlelog.battlefield.com/bf3/user/DANNYonPC',
-		headers: { 'X-Requested-With': 'XMLHttpRequest', 'X-AjaxNavigation': '1' }
+	delete res.data;
+	
+	console.log(res);
+	
+*/
+
+	var authRes = await axios.get('http://battlelog.battlefield.com/bf3/user/Nefomemes', {
+
+		headers: {
+			"X-Requested-With": "XMLHttpRequest",
+			"X-AjaxNavigation": "1",
+		
+		}
+		
 	});
-	console.log(res.data);
-	var ok = res.data.context.profileCommon;
 
-	delete ok.platoons;
-	delete ok.platoonFans;
-
-	console.log(ok.tenFriends);
+	
+console.log(authRes.data);
 
 })();
 
 // .icon-danger
+ 

@@ -1,0 +1,5 @@
+class SoldiersManager {
+	constructor(client){
+        
+    }
+}

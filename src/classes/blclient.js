@@ -3,7 +3,7 @@ const utils = require("../utils/utils");
 const { GameClient } = require("./gameclient");
 
 class BattlelogClient {
-	
+	type = "BattlelogClient"
 	
 	
 	constructor(options = {}){
@@ -14,9 +14,11 @@ class BattlelogClient {
 
 	}
 	
-	game() {
+	game(...params) {
+		return new GameClient(this, ...params);
 
 	}
 	
 }
 	
+module.exports.BattlelogClient = BattlelogClient;
