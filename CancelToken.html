@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> CancelToken</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -73,17 +73,158 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Class</p>
+                    <h1>CancelToken</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>CancelToken<span class="signature">(executor)</span><span class="type-signature"></span></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
+
+
+    
+    <h4 class="name" id="CancelToken">
+        <a class="href-link" href="#CancelToken">#</a>
+        
+        <span class="code-name">
+            
+                new CancelToken<span class="signature">(executor)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        A `CancelToken` is an object that can be used to request cancellation of an operation.
+    </div>
     
 
 
-    <h3> </h3>
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>executor</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">function</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last">The executor function.</td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="node_modules_axios_lib_cancel_CancelToken.js.html" class="button">View Source</a>
+            <span>
+                <a href="node_modules_axios_lib_cancel_CancelToken.js.html">node_modules/axios/lib/cancel/CancelToken.js</a>, <a href="node_modules_axios_lib_cancel_CancelToken.js.html#line11">line 11</a>
+            </span>
+        </p>
+    
+</dl>
 
 
 
@@ -94,17 +235,253 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id=".source">
+        <a class="href-link" href="#.source">#</a>
+        
+            
+                <span class='tag'>static</span>
+            
+        
+        <span class="code-name">
+            
+                source<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Returns an object that contains a new `CancelToken` and a function that, when called,
+cancels the `CancelToken`.
+    </div>
     
 
 
 
 
-    <section>
-        <article><h1>battlelog.js</h1>
-<p>Unofficial API wrapper for battlelog.battlefield.com</p></article>
-    </section>
 
 
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="node_modules_axios_lib_cancel_CancelToken.js.html" class="button">View Source</a>
+            <span>
+                <a href="node_modules_axios_lib_cancel_CancelToken.js.html">node_modules/axios/lib/cancel/CancelToken.js</a>, <a href="node_modules_axios_lib_cancel_CancelToken.js.html#line46">line 46</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="throwIfRequested">
+        <a class="href-link" href="#throwIfRequested">#</a>
+        
+        <span class="code-name">
+            
+                throwIfRequested<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        Throws a `Cancel` if cancellation has been requested.
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="node_modules_axios_lib_cancel_CancelToken.js.html" class="button">View Source</a>
+            <span>
+                <a href="node_modules_axios_lib_cancel_CancelToken.js.html">node_modules/axios/lib/cancel/CancelToken.js</a>, <a href="node_modules_axios_lib_cancel_CancelToken.js.html#line36">line 36</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
