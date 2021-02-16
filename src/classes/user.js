@@ -37,9 +37,8 @@ this.activities = res.data.context.activityStream;
 	return this;
 	}
 	/**
-	 * @function
-	 * @param {object} data 
-	 * @desc Structure the raw data given and use it to refresh the properties.
+	 * Structure the class using the data provided. 
+	 * @param {object} data - The data used to structure the class  
 	 * @returns this
 	 */
 	structureData(data){
