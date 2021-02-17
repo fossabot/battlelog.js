@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node test.js",
     "start": "node index.js",
-    "lint":"eslint --output-file eslint_report.json --format json ."
+    "lint": "eslint --ext .ts src",
+    "lint:report": "eslint --ext .ts --output-file eslint_report.json --format json src"
   },
   "keywords": [],
   "author": "",
