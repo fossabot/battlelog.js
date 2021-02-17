@@ -23,9 +23,9 @@ class User {
 	}
 	}
 /**
- * @function fetch
+ * Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
  * @async 
- * @desc Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+ * @returns {User} the User
  */
 	async fetch(){
 			const res = await this.client.axios.get(`/user/${this.name}`);
@@ -37,10 +37,9 @@ this.activities = res.data.context.activityStream;
 	return this;
 	}
 	/**
-	 * @function
-	 * @param {object} data 
-	 * @desc Structure the raw data given and use it to refresh the properties.
-	 * @returns this
+	 * Structure the class using the data provided. 
+	 * @param {object} data - The data used to structure the class  
+	 * @returns {User} the User
 	 */
 	structureData(data){
 		
@@ -74,10 +73,10 @@ this.activities = res.data.context.activityStream;
 	}
 
 	/**
-	 * 
+	 * Get the URL string of the user's avatar.
 	 * @function
-	 * @returns 
 	 * @param {object} options - Options used 
+	 * @returns {string} URL string for the user's avatar.
 	 */
 	displayAvatarURL(options = {}){
 
