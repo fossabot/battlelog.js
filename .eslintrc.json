@@ -33,9 +33,7 @@
     "ecmaFeatures": {
       "globalReturn": false,
     },
-    "babelOptions": {
-      "configFile": "path/to/config.js",
-    },
+    
   }
 
 }
