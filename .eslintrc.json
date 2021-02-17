@@ -22,6 +22,10 @@
     
 
     
-  "extends": ["plugin:jsdoc/recommended", "eslint:recommended"]
+  "extends": ["plugin:jsdoc/recommended", "eslint:recommended"],
+    "rules": {
+   "no-unused-vars": "off"
+ }
+
 }
   
