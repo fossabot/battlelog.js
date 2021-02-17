@@ -17,7 +17,7 @@ class User {
 		
 	this.client = client;	
 	if(typeof data === "object"){
-	thi.structureData(data);
+	this.structureData(data);
 	} else if(typeof data == "string"){
 		this.name  = data;
 	}
