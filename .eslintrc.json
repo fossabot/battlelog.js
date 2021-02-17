@@ -28,6 +28,9 @@
       "ecmaFeatures":{
          "globalReturn":true
       },
-         "requireConfigFile": false
+         "requireConfigFile": false,
+         "babelOptions": {
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}
    }
 }
