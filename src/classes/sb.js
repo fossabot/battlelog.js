@@ -6,6 +6,10 @@ class ServerBrowser {
 	constructor(client, data){
 		this.client = client;
 		
+		
+		
+		
+		
 		structureData(data);
 		
 	}
