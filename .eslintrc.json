@@ -27,6 +27,7 @@
       "allowImportExportEverywhere":false,
       "ecmaFeatures":{
          "globalReturn":true
-      }
+      },
+         "requireConfigFile": false
    }
 }
