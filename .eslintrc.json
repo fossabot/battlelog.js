@@ -31,7 +31,7 @@
     "sourceType": "module",
     "allowImportExportEverywhere": false,
     "ecmaFeatures": {
-      "globalReturn": false,
+      "globalReturn": true
     },
     
   }
