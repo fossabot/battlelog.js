@@ -233,6 +233,6 @@
 
     "promise/param-names": "error"
   }, 
-  extends": ["plugin:jsdoc/recommended"]
+  "extends": ["plugin:jsdoc/recommended"]
 }
   
