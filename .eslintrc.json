@@ -1,4 +1,4 @@
-
+{
   "env": {
     "es2021": true,
     "node": true
@@ -233,4 +233,6 @@
 
     "promise/param-names": "error"
   }, 
-  extends": ["plugin:jsdoc/recom
+  extends": ["plugin:jsdoc/recommended"]
+}
+  
