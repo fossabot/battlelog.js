@@ -3,7 +3,7 @@ const utils = require("../utils/utils");
 class Persona {
     constructor(user, data){
         this.user = user;
-        structureData(data);
+        this.structureData(data);
     }
 
     structureData(data){
