@@ -3,7 +3,12 @@ const utils = require("../utils/utils");
 const { stringify } = require("querystring");
 /**
  * Represents a Battlelog user.
+<<<<<<< HEAD
  * @constructor 
+=======
+ *
+ * @class
+>>>>>>> e91eafa168cb93a426fd3c315c94e892461f29d8
  * @param {GameClient} client - The client used to access this user.
  * @param {object} data - Raw object data of the user. 
  */
@@ -23,9 +28,15 @@ class User {
 	}
 	}
 /**
+<<<<<<< HEAD
  * @function fetch
  * @async 
  * @desc Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+=======
+ * Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+ * @async 
+ * @returns {User} the User
+>>>>>>> e91eafa168cb93a426fd3c315c94e892461f29d8
  */
 	async fetch(){
 			const res = await this.client.axios.get(`/user/${this.name}`);
@@ -37,10 +48,16 @@ this.activities = res.data.context.activityStream;
 	return this;
 	}
 	/**
+<<<<<<< HEAD
 	 * @function
 	 * @param {object} data 
 	 * @desc Structure the raw data given and use it to refresh the properties.
 	 * @returns this
+=======
+	 * Structure the class using the data provided. 
+	 * @param {object} data - The data used to structure the class  
+	 * @returns {User} the User
+>>>>>>> e91eafa168cb93a426fd3c315c94e892461f29d8
 	 */
 	structureData(data){
 		
@@ -74,10 +91,17 @@ this.activities = res.data.context.activityStream;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * 
 	 * @function
 	 * @returns 
 	 * @param {object} options - Options used 
+=======
+	 * Get the URL string of the user's avatar.
+	 * @function
+	 * @param {object} options - Options used 
+	 * @returns {string} URL string for the user's avatar.
+>>>>>>> e91eafa168cb93a426fd3c315c94e892461f29d8
 	 */
 	displayAvatarURL(options = {}){
 
@@ -103,4 +127,8 @@ this.activities = res.data.context.activityStream;
 
 }
 
+<<<<<<< HEAD
 module.exports.User = User;
+=======
+module.exports.User = User;
+>>>>>>> e91eafa168cb93a426fd3c315c94e892461f29d8
