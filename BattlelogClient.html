@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> User</title>
+  <title> BattlelogClient</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -74,7 +74,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Class</p>
-                    <h1>User</h1>
+                    <h1>BattlelogClient</h1>
                 </header>
                 
 
@@ -85,9 +85,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>User<span class="signature">(client, data)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>BattlelogClient<span class="signature">(options-)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Represents a Battlelog user.</div>
+            <div class="class-description">Represents a Battlelog session.</div>
         
     
 </header>
@@ -106,18 +106,22 @@
 
 
     
-    <h4 class="name" id="User">
-        <a class="href-link" href="#User">#</a>
+    <h4 class="name" id="BattlelogClient">
+        <a class="href-link" href="#BattlelogClient">#</a>
         
         <span class="code-name">
             
-                new User<span class="signature">(client, data)</span><span class="type-signature"></span>
+                new BattlelogClient<span class="signature">(options-)</span><span class="type-signature"></span>
             
         </span>
     </h4>
     
 
     
+    
+    <div class="description">
+        Creates a new Battlelog session.
+    </div>
     
 
 
@@ -154,32 +158,7 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>client</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">GameClient</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">The client used to access this user.</td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>data</code></td>
+      <td class="name"><code>options-</code></td>
   
 
   <td class="type">
@@ -195,7 +174,7 @@
 
   
 
-  <td class="description last">Raw object data of the user.</td>
+  <td class="description last">The options used here.</td>
 </tr>
 
 
@@ -241,9 +220,9 @@
 
     
         <p class="tag-source">
-            <a href="user.js.html" class="button">View Source</a>
+            <a href="blclient.js.html" class="button">View Source</a>
             <span>
-                <a href="user.js.html">user.js</a>, <a href="user.js.html#line17">line 17</a>
+                <a href="blclient.js.html">blclient.js</a>, <a href="blclient.js.html#line19">line 19</a>
             </span>
         </p>
     
@@ -300,12 +279,12 @@
 
 
     
-    <h4 class="name" id="displayAvatarURL">
-        <a class="href-link" href="#displayAvatarURL">#</a>
+    <h4 class="name" id="game">
+        <a class="href-link" href="#game">#</a>
         
         <span class="code-name">
             
-                displayAvatarURL<span class="signature">(options)</span><span class="type-signature"> &rarr; {string}</span>
+                game<span class="signature">(&hellip;params)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -314,7 +293,7 @@
     
     
     <div class="description">
-        Get the URL string of the user's avatar.
+        Creates a new GameClient instance.
     </div>
     
 
@@ -339,6 +318,8 @@
             <th>Type</th>
 
             
+            <th>Attributes</th>
+            
 
             
 
@@ -352,23 +333,33 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>options</code></td>
+      <td class="name"><code>params</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">object</span>
+<span class="param-type">*</span>
 
 
   
   </td>
 
   
+      <td class="attributes">
+      
+
+      
+
+      
+          &lt;repeatable><br>
+      
+      </td>
+  
 
   
 
-  <td class="description last">Options used</td>
+  <td class="description last">The params used to create the instance.</td>
 </tr>
 
 
@@ -414,9 +405,9 @@
 
     
         <p class="tag-source">
-            <a href="user.js.html" class="button">View Source</a>
+            <a href="blclient.js.html" class="button">View Source</a>
             <span>
-                <a href="user.js.html">user.js</a>, <a href="user.js.html#line85">line 85</a>
+                <a href="blclient.js.html">blclient.js</a>, <a href="blclient.js.html#line31">line 31</a>
             </span>
         </p>
     
@@ -438,330 +429,6 @@
 
 
 
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>URL string for the user's avatar.</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">string</span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="fetch">
-        <a class="href-link" href="#fetch">#</a>
-        
-            
-                <span class='tag'>async</span>
-            
-        
-        <span class="code-name">
-            
-                fetch<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="User.html">User</a>}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
-    </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="user.js.html" class="button">View Source</a>
-            <span>
-                <a href="user.js.html">user.js</a>, <a href="user.js.html#line32">line 32</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>the User</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type"><a href="User.html">User</a></span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
-                <div class="member">
-
-
-    
-    <h4 class="name" id="structureData">
-        <a class="href-link" href="#structureData">#</a>
-        
-        <span class="code-name">
-            
-                structureData<span class="signature">(data)</span><span class="type-signature"> &rarr; {<a href="User.html">User</a>}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        Structure the class using the data provided.
-    </div>
-    
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>data</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last">The data used to structure the class</td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="user.js.html" class="button">View Source</a>
-            <span>
-                <a href="user.js.html">user.js</a>, <a href="user.js.html#line47">line 47</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'>the User</div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type"><a href="User.html">User</a></span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
 
 
 
