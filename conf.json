@@ -29,7 +29,7 @@
         "default": {
             "staticFiles": {
               "include": [
-                  "./docs-src/statics"
+                  "./static/"
               ]
             }
         },
