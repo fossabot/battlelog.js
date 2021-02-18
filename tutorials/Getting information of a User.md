@@ -1,6 +1,6 @@
 ```js
 
-const bl = require("./src/index.js");
+const bl = require("battlelog.js");
 var blClient = bl();
 
 var bf3 = client.game('bf3');
@@ -10,7 +10,7 @@ console.log(user);
 
 ```
 
-That should print.
+When running this code, it should print:
 
 ```js
 User {
