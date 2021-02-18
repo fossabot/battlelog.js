@@ -18,3 +18,7 @@ BattlelogJS doesn't much require any dependencies, only axios. While of course, 
 
 - [jsdoc](https://github.com/jsdoc/jsdoc) - JavaScript documentation generator.
 - []
+
+## Misc stuff
+
+- [CodeFactor](https://www.codefactor.io/repository/github/nefomemes/battlelog.js/issues)
