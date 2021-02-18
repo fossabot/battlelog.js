@@ -113,7 +113,7 @@
 
 <article>
     <pre class="prettyprint source lang-js"><code>
-const bl = require(&quot;./src/index.js&quot;);
+const bl = require(&quot;battlelog.js&quot;);
 var blClient = bl();
 
 var bf3 = client.game('bf3');
@@ -122,7 +122,7 @@ var user = await bf3.users.fetch( &quot;DANNYonPC&quot;);
 console.log(user);
 
 </code></pre>
-<p>That should print.</p>
+<p>When running this code, it should print:</p>
 <pre class="prettyprint source lang-js"><code>User {
       userId: '',
       username: '',
