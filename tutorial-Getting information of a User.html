@@ -112,7 +112,8 @@
                 <section>
 
 <article>
-    <pre class="prettyprint source"><code>const bl = require(&quot;./src/index.js&quot;);
+    <pre class="prettyprint source lang-js"><code>
+const bl = require(&quot;./src/index.js&quot;);
 var blClient = bl();
 
 var bf3 = client.game('bf3');
@@ -120,15 +121,15 @@ var user = await bf3.users.fetch( &quot;DANNYonPC&quot;);
 
 console.log(user);
 
-/*
-    User {
+</code></pre>
+<p>That should print.</p>
+<pre class="prettyprint source lang-js"><code>User {
       userId: '',
       username: '',
       platoons: [],
       platoonFans: [],
       friends: []
     }
-*/
 </code></pre>
 </article>
 
