@@ -15,3 +15,56 @@
         "monospaceLinks": false
     }
 }
+{
+    "tags": {
+        "allowUnknownTags": ["category"]
+    },
+    "source": {
+        "include": ["./src"],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules/|docs)"
+    },
+    "plugins": [
+        "plugins/markdown",
+        "jsdoc-mermaid",
+        "node_modules/better-docs/category"
+    ],
+    "opts": {
+        "encoding": "utf8",
+        "destination": "docs/",
+        "readme": "readme.md",
+        "recurse": true,
+        "verbose": true,
+        "tutorials": "./docs-src/tutorials",
+        "template": "better-docs"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "search": true,
+        "default": {
+            "staticFiles": {
+              "include": [
+                  "./docs-src/statics"
+              ]
+            }
+        },
+        "better-docs": {
+            "name": "battlelog.js",
+            "logo": "",
+            "title": "battlelog.js",
+            "css": "style.css",
+            "trackingCode": "",
+	    "hideGenerator": false,
+            "navLinks": [
+                {
+                    "label": "Github",
+                    "href": "https://github.com/Nefomemes/battlelog.js"
+                }
+                
+                    
+                  
+            ]
+        }
+    }
+}
