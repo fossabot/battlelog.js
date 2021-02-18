@@ -10,7 +10,7 @@
     },
     "plugins": [
         "plugins/markdown",
-        "jsdoc-mermaid",
+        
 	
         "better-docs/category",
 	    "better-docs/typescript"
