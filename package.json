@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "node test.js",
-    "start": "node index.js"
+    "start": "node index.js",
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies":{
-    "axios": "^0.21.1"    
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^6.0.1"
   }
 }
