@@ -7,7 +7,7 @@ class ServerBrowser {
 		this.client = client;
 		
 
-		structureData(data);
+	
 this.structureData(data);
 	
 	}
