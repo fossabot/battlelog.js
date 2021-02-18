@@ -3,7 +3,8 @@ const utils = require("../utils/utils");
 const { stringify } = require("querystring");
 /**
  * Represents a Battlelog user.
- * @constructor 
+ * 
+ * @class
  * @param {GameClient} client - The client used to access this user.
  * @param {object} data - Raw object data of the user. 
  */
@@ -24,6 +25,7 @@ class User {
 	}
 /**
  * Fetch the user in Battlelog and refresh his data with the raw data Battlelog gave.
+ *
  * @async 
  * @returns {User} the User
  */
@@ -38,6 +40,7 @@ this.activities = res.data.context.activityStream;
 	}
 	/**
 	 * Structure the class using the data provided. 
+   *
 	 * @param {object} data - The data used to structure the class  
 	 * @returns {User} the User
 	 */
@@ -74,6 +77,7 @@ this.activities = res.data.context.activityStream;
 
 	/**
 	 * Get the URL string of the user's avatar.
+   *
 	 * @function
 	 * @param {object} options - Options used 
 	 * @returns {string} URL string for the user's avatar.
@@ -101,5 +105,7 @@ this.activities = res.data.context.activityStream;
 	}
 
 }
+
+ 
 
 module.exports.User = User;

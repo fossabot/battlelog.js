@@ -1,6 +1,9 @@
 const axios = require("axios");
 const defaultHeader = require("../assets/json/headers.json");
-const { UsersManager } = require("./usersmanager");
+
+
+const { UsersManager }  = require("./um");
+
 
 class GameClient {
 	
@@ -40,5 +43,6 @@ class GameClient {
 
 	users = new UsersManager(this);
 }
+
 
 module.exports.GameClient = GameClient;
