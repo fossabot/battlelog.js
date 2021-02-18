@@ -19,7 +19,7 @@
         "readme": "readme.md",
         "recurse": true,
         "verbose": true,
-        "tutorials": "./docs-src/tutorials",
+        "tutorials": "./tutorials/",
         "template": "better-docs"
     },
     "templates": {
