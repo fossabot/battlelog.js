@@ -1,5 +1,5 @@
 # battlelog.js
-![](https://img.shields.io/github/workflow/status/Nefomemes/battlelog.js/ESLint?label=ESLint&style=flat-square)[![CodeFactor](https://www.codefactor.io/repository/github/nefomemes/battlelog.js/badge)](https://www.codefactor.io/repository/github/nefomemes/battlelog.js)
+![](https://img.shields.io/github/workflow/status/Nefomemes/battlelog.js/ESLint?label=ESLint) [![CodeFactor](https://www.codefactor.io/repository/github/nefomemes/battlelog.js/badge)](https://www.codefactor.io/repository/github/nefomemes/battlelog.js)
 
 Unofficial API library/wrapper for battlelog.battlefield.com
 
