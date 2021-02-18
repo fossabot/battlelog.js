@@ -7,7 +7,9 @@
     "test": "node test.js",
     "start": "node index.js",
     "lint": "eslint ./src",
-    "lint:report": "eslint --output-file eslint_report.json --format json ./src"
+    "lint:report": "eslint --output-file eslint_report.json --format json ./src",
+    "docs": "docgen --source src --custom docs/index.yml --output docs/docs.json",
+    "docs:test": "docgen --source src --custom docs/index.yml"
   },
   "keywords": [],
   "author": "",
