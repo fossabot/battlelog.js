@@ -3,7 +3,7 @@ name: ESLint
 on: [push]
 
 jobs:
-  node_test:
+  eslint:
     runs-on: ubuntu-latest
 
     steps:
